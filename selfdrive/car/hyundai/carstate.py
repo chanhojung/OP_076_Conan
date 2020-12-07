@@ -203,6 +203,8 @@ class CarState(CarStateBase):
         gearShifter = GearShifter.park
       elif cp.vl["CLU15"]["CF_Clu_InhibitR"] == 1:
         gearShifter = GearShifter.reverse
+      else:
+        ret.gearShifter = GearShifter.drive # fixed by KYD to resolve "Gear not D" issue        
 
     # Gear Selecton via TCU12
     elif self.CP.carFingerprint in FEATURES["use_tcu_gears"]:
